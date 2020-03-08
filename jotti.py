@@ -64,7 +64,7 @@ PASSWORD_KEY = 'password'
 USERNAME_KEY = 'username'
 CREDENTIALS_KEY = 'credentials'
 API = 'https://jotti.in/api'
-TEST_API = 'http://localhost:8000/api'
+#TEST_API = 'http://localhost:8000/api'
 AP_JOTTS = '/jotts/'
 EMPTY_ARGUMENT = 'no_jott'
 CREDENTIAL_STORE_PATH = 'jotti_credential_store.ini'
@@ -84,7 +84,7 @@ if args.auth:
 
 
 def post_note(username, password, text):
-    response = requests.post(TEST_API + AP_JOTTS, data={'note_text': text}, auth=(username, password))
+    response = requests.post(API + AP_JOTTS, data={'note_text': text}, auth=(username, password))
     print(response.text)
 
 
@@ -94,7 +94,7 @@ if not args.jott == EMPTY_ARGUMENT:
 
 
 def get_jotts(username, password):
-    next_url = TEST_API + AP_JOTTS
+    next_url = API + AP_JOTTS
     while next_url is not None:
         response = requests.get(next_url, auth=(username, password))
         parsed_json = response.json()
