@@ -63,15 +63,17 @@ def authenticate():
 PASSWORD_KEY = 'password'
 USERNAME_KEY = 'username'
 CREDENTIALS_KEY = 'credentials'
+debug = False
 API = 'https://jotti.in/api'
-#TEST_API = 'http://localhost:8000/api'
+if debug:
+    API = 'http://localhost:8000/api'
 AP_JOTTS = '/jotts/'
 EMPTY_ARGUMENT = 'no_jott'
 CREDENTIAL_STORE_PATH = 'jotti_credential_store.ini'
 
 argparser = argparse.ArgumentParser(description='Take notes')
 g = argparser.add_mutually_exclusive_group()
-g.add_argument('--jott', '--take-note', type=str, help='Stores the given note.', default=EMPTY_ARGUMENT)
+g.add_argument('jott', type=str, nargs='?',help='Stores the given note.', default=EMPTY_ARGUMENT)
 g.add_argument('--auth', '--login', dest='auth', action='store_true', default=False,
                help='stores jotti.in credentials for future use.')
 g.add_argument('--notes', '--view-notes', '--jotts', dest='view_notes', action='store_true', default=False,
