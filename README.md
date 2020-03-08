@@ -27,7 +27,7 @@ To save your credentials:
 
 ## Compilation
 1. Install [python](https://www.python.org/).
-2. Install packages from requirements.txt
+2. Install pyinstaller with `pip install pyinstaller`
 3. Compile binary with `pyinstaller --onefile jotti.py`
 4. Executable is located in the dist folder.
 
