@@ -1,10 +1,8 @@
 import argparse
 import configparser
-import json
 import os
 import getpass
 import sys
-from datetime import datetime
 from dateutil import parser
 
 import requests
